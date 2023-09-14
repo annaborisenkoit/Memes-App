@@ -1,5 +1,3 @@
-const anna = new Person('anutik', 57)
-const omer = new Person('Omercim', 58)
+const app = new Controller();
 
-omer.sayHi();
-anna.sayHi()
+

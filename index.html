@@ -4,34 +4,56 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Memes App</title>
+    <title>Memes App - Blog MVC</title>
 
     <link rel="shortcut icon" href="fav.png" type="image/png" />
+
+    <link rel="stylesheet" href="reset.css" />
     
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div class="container-left">
-      <h1 class="title-1">Memes App</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Новый пост</h2>
+          <input
+            class="js-post-title-input post-title-input"
+            placeholder="Заголовок"
+            type="text"
+          />
 
-      <div class="search">
-        <div class="container">
-          <div class="add">
-            <input
-              type="text"
-              placeholder="Enter movie name (in English)"
-              class="js-add__title add__title"
-              id="add__title"
-            />
-            <button class="js-add__button add__button">Search</button>
-          </div>
+          <output class="js-output-title output-title output-title_hidden"></output>
+          <textarea
+            class="js-post-text-input post-text-input"
+            placeholder="Напиши пост"
+            type="text"
+          ></textarea>
+
+          <output class="js-output-text output-text output-text_hidden"></output>
+          <button class="js-new-post-btn new-post-btn">Опубликовать</button>
+          <div
+            //id="validationMessage"
+            class="js-validationMessage validationMessage validationMessage_hidden"
+          ></div>
+        </div>
+        <div class="col">
+          <h2>Лента</h2>
+          <div id="posts" class="posts"></div>
         </div>
       </div>
-      <div class="js-films films">
-      </div>
-        
-      <script src="./person.js"></script>
-      <script src="./index.js"></script>
-    
+    </div>
+
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src="controller.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
