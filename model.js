@@ -1,16 +1,14 @@
 class Model {
     constructor({ onPostCanged }) {
-        this.posts = [{
-            title: 'efefe',
-            description: 'Jgbcfybt'
-        }];
+        this.posts = [];
         this.onPostCanged = onPostCanged;        
     }
 
     addPost(title, description) {
         this.posts.push({
             title,
-            description
+            description,
+            timestamp: Date.now()
         });
 
         this.onPostCanged(this.posts);
