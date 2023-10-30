@@ -1,28 +1,13 @@
 class Controller {
     constructor() {
-        this.model = new Model({
-            onPostCanged: this.handleModelPostsChanged
-        });
-
-        this.view = new View({
-            onNewPost: this.handleViewNewPost
-        });
-
+        this.model = new Model();
+        this.view = new View();
         this.api = new API();
     }
 
     init() {
-        this.api.fetchPosts()
-        .then(posts => {
-            this.model.setPosts(posts)
-        })
-    }
+        const preview = this.model.getPreview();
 
-    handleModelPostsChanged = (posts, isError) => {
-        this.view.render(posts, isError);
-    }
-
-    handleViewNewPost = (title, body) => {
-        this.model.addPost(title, body);
+        this.view.render(preview)
     }
 }

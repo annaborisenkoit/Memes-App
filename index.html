@@ -20,38 +20,13 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h2>Новый пост</h2>
-          <input
-            id="title-input"  
-            class="post-title-input"
-            placeholder="Заголовок"
-            type="text"
-          />
-
-          <output class="js-output-title output-title output-title_hidden"></output>
-          <textarea
-            id="body-input"
-            class="post-text-input"
-            placeholder="Напиши пост"
-            type="text"
-          ></textarea>
-
-          <output class="js-output-text output-text output-text_hidden"></output>
-          <button id="add-post-btn" class=" new-post-btn">Опубликовать</button>
-          <div
-            //id="validationMessage"
-            class="js-validationMessage validationMessage validationMessage_hidden"
-          ></div>
-        </div>
-        <div class="col">
-          <h2>Лента</h2>
-          <div id="posts" class="posts"></div>
-        </div>
-      </div>
+    <div class="preview">
+      <p class="js-top-text"></p>
+      <p class="js-bottom-text"></p>
+      <img class="js-image">
     </div>
+
+     
 
     <script src="model.js"></script>
     <script src="view.js"></script>
