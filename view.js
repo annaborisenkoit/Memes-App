@@ -2,7 +2,7 @@ class View {
     constructor( {onNewPost} ) {
         this.postsNode = document.querySelector('#posts');
         this.titleInputNode = document.querySelector('#title-input');
-        this.descriptionInputNode = document.querySelector('#description-input');
+        this.bodyInputNode = document.querySelector('#body-input');
         this.btnNode = document.querySelector('#add-post-btn');
 
         this.onNewPost = onNewPost;
@@ -10,7 +10,7 @@ class View {
         this.btnNode.addEventListener('click', this._handleBtnClick);
     }
 
-    renderPosts(posts) {
+    render(posts, isError) {
         this.postsNode.innerHTML = '';
 
         posts.forEach(post => {
@@ -18,7 +18,7 @@ class View {
                 <div>
                     <p>${this._buildDateString(post.timestamp)}</p>
                     <p>${post.title}</p> 
-                    <p>${post.description}</p>
+                    <p>${post.body}</p>
                 </div>
             `;
         });
@@ -26,9 +26,9 @@ class View {
 
     _handleBtnClick = () => {
         const title = this.titleInputNode.value;
-        const description = this.descriptionInputNode.value;
+        const body = this.bodyInputNode.value;
 
-        this.onNewPost(title, description);
+        this.onNewPost(title, body);
     }
 
     _buildDateString(timestamp) {
