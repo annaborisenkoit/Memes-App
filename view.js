@@ -3,9 +3,11 @@ class View {
         this.previewTopTextNode = document.querySelector('.js-top-text');
         this.previewBottomTextNode = document.querySelector('.js-bottom-text');
         this.previewImageNode = document.querySelector('.js-image');
+
+        this.settingSelectNode = document.querySelector('js-memes-select');
     }
 
-    render(preview) {
+    renderPreview(preview) {
         const {
             url,
             textTop,
@@ -15,6 +17,10 @@ class View {
         this.previewTopTextNode.innerText = textTop;
         this.previewBottomTextNode.innerText = textBottom;
         this.previewImageNode.src = url;
+    }
+
+    renderMemesSelect(memes) {
+        
     }
 }
     
