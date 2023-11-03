@@ -1,24 +1,15 @@
-const PREVIEW_MOCK = {
-    url: 'https://i.imgflip.com/1g8my4.jpg',
+const PREVIEW_MOCK = { //моковое превью, объект
+    url: 'https://i.imgflip.com/1g8my4.jpg', //не из api, хардкод
     textTop: 'Верхняя подпись',
     textBottom: 'Нижняя подпись'
 };
 
 class Model {
     constructor() {
-        this.memes = [];
         this.preview = PREVIEW_MOCK;
     }
 
-    getMemes () {
-        return this.memes
-    }
-
-    setMemes(memes) {
-        this.memes = memes;
-    }
-
-    getPreview() {
+    getPreview() { //чтобы что-то получить из модели, невозможно напрямую, для этого создаем метод getPreview
         return this.preview;
     }
 }

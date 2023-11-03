@@ -1,17 +1,16 @@
-class Controller {
+class Controller { 
     constructor() {
+        //подвязываем модель, отображение и api
         this.model = new Model();
         this.view = new View();
         this.api = new API();
     }
 
+    //инициализация memes app
     init() {
-        const memes = this.api.getMemes();
+        const preview = this.model.getPreview();//метод вернет мок
 
-        this.model.setMemes(memes);
-        
-        const preview = this.model.getPreview();
-
-        this.view.renderPreview(preview)
+        this.view.render(preview)//получили из модели, передали во вью
     }
+    
 }
