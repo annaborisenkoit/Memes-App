@@ -6,10 +6,28 @@ const PREVIEW_MOCK = { //моковое превью, объект
 
 class Model {
     constructor() {
-        this.preview = PREVIEW_MOCK;
+        this.memes = []; //список мемов, хранилка для мемов
+        this.currentMemeId = null;
+        this.preview = PREVIEW_MOCK; //state preview
     }
 
-    getPreview() { //чтобы что-то получить из модели, невозможно напрямую, для этого создаем метод getPreview
+    getMemes() { //геттер, этот метод позволяет получить список мемов
+        return this.memes;
+    }
+
+    setMemes(memes) { //сеттер, этот метод позволяет достать список мемов
+        this.memes = memes;
+    }
+
+    setCurrentMemeId(currentMemeId) {
+        this.currentMemeId = currentMemeId;
+    }
+
+    getCurrentMemeId() {
+        return this.currentMemeId;
+    }
+
+    getPreview() { //чтобы снаружи что-то получить из модели , невозможно напрямую, для этого создаем метод getPreview
         return this.preview;
     }
 }

@@ -8,9 +8,16 @@ class Controller {
 
     //инициализация memes app
     init() {
-        const preview = this.model.getPreview();//метод вернет мок
+        const memes = this.api.getMemes(); //на старте получаем мемы, из api вызываю getMemes - имитирую апишку, но она пока возвращает пустые мемы, потом будет ходить в реальный апи
 
-        this.view.render(preview)//получили из модели, передали во вью
+        this.model.setMemes(memes); //сеттим мемы в модели
+        this.model.setCurrentMemeId(memes[0].id);
+
+        this.view.renderMemesSelect(this.model.getMemes(), this.model.getCurrentMemeId());//сеттер приводит к отрисовке селекта
+        
+        const preview = this.model.getPreview();//метод вернет моковое превью
+
+        this.view.renderPreview(preview)//получили превью из модели, передали во вью
     }
     
 }
