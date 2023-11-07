@@ -1,10 +1,14 @@
 class View {
-    constructor() { //доступ ко всем нодам - html-элементам
+    constructor({ onMemeChange }) { //доступ ко всем нодам - html-элементам
         this.previewTopTextNode = document.querySelector('.js-top-text');//относится к превью
         this.previewBottomTextNode = document.querySelector('.js-bottom-text');//относится к превью
         this.previewImageNode = document.querySelector('.js-image');//относится к превью
 
         this.settingSelectNode = document.querySelector('.js-memes-select') //относится к настройкам
+
+        this.onMemeChange = onMemeChange;
+
+        this.settingSelectNode.addEventListener('change', (this._handleSelectChange))
     }
 
     renderPreview(preview) { //метод для отображения, принимает объект, который мы завели в модели
@@ -39,5 +43,11 @@ class View {
 
             this.settingSelectNode.appendChild(optionNode);
         });
+    }
+
+    _handleSelectChange = () => {
+        const id = this.settingSelectNode.value;
+           
+        this.onMemeChange(id);
     }
 }   
