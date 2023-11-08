@@ -45,9 +45,9 @@ class View {
         });
     }
 
-    _handleSelectChange = () => {
-        const id = this.settingSelectNode.value;
+    _handleSelectChange = () => { //обработка смены селекта - как только меняется селект, запусти метод, что селект поменялся
+        const id = this.settingSelectNode.value; //этим кодом я подсвечиваю, что внутри value лежит id
            
-        this.onMemeChange(id);
+        this.onMemeChange(id);//метод, что селект поменялся, передай id
     }
 }   

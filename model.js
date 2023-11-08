@@ -1,14 +1,15 @@
 const PREVIEW_MOCK = { //моковое превью, объект
-    url: '', //не из api, хардкод
     textTop: 'Верхняя подпись',
     textBottom: 'Нижняя подпись'
 };
 
 class Model {
-    constructor() {
+    constructor({ onCurrentMemeIdChange }) {
         this.memes = []; //список мемов, хранилка для мемов
         this.currentMemeId = null;
         this.preview = PREVIEW_MOCK; //state preview
+
+        this.onCurrentMemeIdChange = onCurrentMemeIdChange;
     }
 
     getMemes() { //геттер, этот метод позволяет получить список мемов
@@ -19,8 +20,10 @@ class Model {
         this.memes = memes;
     }
 
-    setCurrentMemeId(currentMemeId) {
+    setCurrentMemeId(currentMemeId) { //умеет вызвать onCurrentMemeIdChange
         this.currentMemeId = currentMemeId;
+
+        this.onCurrentMemeIdChange();
     }
 
     getCurrentMemeId() {
@@ -31,8 +34,17 @@ class Model {
         return this.preview;
     }
 
-    getCurrentMeme() {
-        return this.memes[this.getCurrentMemeId];
+    getCurrentMeme() { //умеет достать текущий мем-объект
+        let currentMeme = null;
+
+        this.memes.forEach(meme => {
+            if (meme.id === this.getCurrentMemeId()) {
+                currentMeme = meme;
+            }
+        })
+
+        return currentMeme;
+
     }
 }
 
