@@ -6,7 +6,9 @@ const PREVIEW_MOCK = { //моковое превью, объект
 class Model {
     constructor({ 
         onCurrentMemeIdChange,
-        onMemesChange 
+        onMemesChange,
+        onTextTopChange,
+        onTextBottomChange
     }) {
         this.memes = []; //список мемов, хранилка для мемов
         this.currentMemeId = null;
@@ -16,6 +18,8 @@ class Model {
 
         this.onMemesChange = onMemesChange;
         this.onCurrentMemeIdChange = onCurrentMemeIdChange;
+        this.onTextTopChange = onTextTopChange;
+        this.onTextBottomChange = onTextBottomChange;
     }
 
     getMemes() { //геттер, этот метод позволяет получить список мемов
@@ -38,6 +42,18 @@ class Model {
 
     getCurrentMemeId() {
         return this.currentMemeId;
+    }
+
+    setTextTop(text) {
+        this.textTop = text;
+
+        this.onTextTopChange();
+    }
+
+    setTextBottom(text) {
+        this.textBottom = text;
+
+        this.onTextBottomChange();
     }
 
     getPreview = () => { //чтобы снаружи что-то получить из модели , невозможно напрямую, для этого создаем метод getPreview

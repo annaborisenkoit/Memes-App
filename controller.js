@@ -3,11 +3,15 @@ class Controller {
         //подвязываем модель, отображение и api
         this.model = new Model({
             onMemesChange: this.handleModelMemesChange,
-            onCurrentMemeIdChange: this.handleModelCurrentMemeIdChange
+            onCurrentMemeIdChange: this.handleModelCurrentMemeIdChange,
+            onTextTopChange: this.handleModelTextTopChange,
+            onTextBottomChange: this.handleModelTextBottomChange
         });
         this.view = new View(
             {
-            onMemeChange: this.handleViewMemeChange
+            onMemeChange: this.handleViewMemeChange,
+            onTextTopChange: this.handleViewTextTopChange,
+            onTextBottomChange: this.handleViewTextBottomChange
         });
 
         this.api = new API();
@@ -30,6 +34,22 @@ class Controller {
     }
 
     handleModelCurrentMemeIdChange = () => {//когда в модели меняется currentMemeId, то запусти рендер во вью - новое renderPreview
+        this.view.renderPreview(this.model.getPreview());
+    }
+
+    handleViewTextTopChange = (text) => { //когда во вью что-то меняется, я делаю:
+        this.model.setTextTop(text);
+    }
+
+    handleViewTextBottomChange = (text) => {
+        this.model.setTextBottom(text);
+    }
+
+    handleModelTextTopChange = () => {//когда в модели меняется верхний текст, делаю renderPreview
+        this.view.renderPreview(this.model.getPreview());
+    }
+
+    handleModelTextBottomChange = () => {
         this.view.renderPreview(this.model.getPreview());
     }
     
