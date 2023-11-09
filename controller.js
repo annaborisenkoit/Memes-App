@@ -30,12 +30,7 @@ class Controller {
     }
 
     handleModelCurrentMemeIdChange = () => {//когда в модели меняется currentMemeId, то запусти рендер во вью - новое renderPreview
-        const preview = {
-            ...this.model.getPreview(),
-            url: this.model.getCurrentMeme().url
-        }
-        
-        this.view.renderPreview(preview);
+        this.view.renderPreview(this.model.getPreview());
     }
     
 }

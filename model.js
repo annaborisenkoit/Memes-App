@@ -10,7 +10,9 @@ class Model {
     }) {
         this.memes = []; //список мемов, хранилка для мемов
         this.currentMemeId = null;
-        this.preview = PREVIEW_MOCK; //state preview
+        this.textTop = '';
+        this.textBottom = '';
+
 
         this.onMemesChange = onMemesChange;
         this.onCurrentMemeIdChange = onCurrentMemeIdChange;
@@ -38,8 +40,12 @@ class Model {
         return this.currentMemeId;
     }
 
-    getPreview() { //чтобы снаружи что-то получить из модели , невозможно напрямую, для этого создаем метод getPreview
-        return this.preview;
+    getPreview = () => { //чтобы снаружи что-то получить из модели , невозможно напрямую, для этого создаем метод getPreview
+        return {
+            textTop: this.textTop,
+            textBottom: this.textBottom,
+            url: this.getCurrentMeme().url
+        }
     }
 
     getCurrentMeme() { //умеет достать текущий мем-объект
