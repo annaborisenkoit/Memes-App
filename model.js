@@ -4,11 +4,15 @@ const PREVIEW_MOCK = { //моковое превью, объект
 };
 
 class Model {
-    constructor({ onCurrentMemeIdChange }) {
+    constructor({ 
+        onCurrentMemeIdChange,
+        onMemesChange 
+    }) {
         this.memes = []; //список мемов, хранилка для мемов
         this.currentMemeId = null;
         this.preview = PREVIEW_MOCK; //state preview
 
+        this.onMemesChange = onMemesChange;
         this.onCurrentMemeIdChange = onCurrentMemeIdChange;
     }
 
@@ -18,6 +22,10 @@ class Model {
 
     setMemes(memes) { //сеттер, этот метод позволяет достать список мемов
         this.memes = memes;
+        this.currentMemeId = memes[0].id;
+
+        this.onMemesChange(); //обработчик, вызовет код из контроллера - renderMemesSelect и renderPreview
+        this.onCurrentMemeIdChange();
     }
 
     setCurrentMemeId(currentMemeId) { //умеет вызвать onCurrentMemeIdChange
