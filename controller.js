@@ -22,8 +22,9 @@ class Controller {
         this.api.getMemes() //на старте получаем мемы, из api вызываю getMemes - имитирую апишку, но она пока возвращает пустые мемы, потом будет ходить в реальный апи
             .then(data => {
                 const memes = data.data.memes;
-                this.model.setMemes(memes); //сеттим мемы в модели, setMemes и мемы меняет и выбранный id
-            });       
+                memes.length = 15; 
+                this.model.setMemes(memes); //сеттим мемы в модели, когда приходят реальные данные 
+            });               
     }
 
     handleModelMemesChange = () => { //на изменение мема в модели есть отображение селекта
