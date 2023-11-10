@@ -1,8 +1,3 @@
-const PREVIEW_MOCK = { //моковое превью, объект
-    textTop: 'Верхняя подпись',
-    textBottom: 'Нижняя подпись'
-};
-
 class Model {
     constructor({ 
         onCurrentMemeIdChange,

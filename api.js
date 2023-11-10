@@ -15,13 +15,18 @@ const MEMES_MOCK = [
     },
 ];
 
+//https://api.imgflip.com/get_memes
+
 class API {
     constructor() {
-        
+        this.baseUrl = 'https://api.imgflip.com';
     }
 
     getMemes() { //Взяли моки из const MEMES_MOCK и возвращаем их
-        return MEMES_MOCK;
+        return fetch(`${this.baseUrl}/get_memes`)
+            .then(data => {
+                return data.json();
+            });
     }
 
 }

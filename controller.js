@@ -19,10 +19,11 @@ class Controller {
 
     //инициализация memes app
     init() {
-        const memes = this.api.getMemes(); //на старте получаем мемы, из api вызываю getMemes - имитирую апишку, но она пока возвращает пустые мемы, потом будет ходить в реальный апи
-
-        this.model.setMemes(memes); //сеттим мемы в модели, setMemes и мемы меняет и выбранный id
-        
+        this.api.getMemes() //на старте получаем мемы, из api вызываю getMemes - имитирую апишку, но она пока возвращает пустые мемы, потом будет ходить в реальный апи
+            .then(data => {
+                const memes = data.data.memes;
+                this.model.setMemes(memes); //сеттим мемы в модели, setMemes и мемы меняет и выбранный id
+            });       
     }
 
     handleModelMemesChange = () => { //на изменение мема в модели есть отображение селекта
