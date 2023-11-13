@@ -22,7 +22,7 @@ class Controller {
         this.api.getMemes() //на старте получаем мемы, из api вызываю getMemes - имитирую апишку, но она пока возвращает пустые мемы, потом будет ходить в реальный апи
             .then(data => {
                 const memes = data.data.memes;
-                memes.length = 15; 
+                memes.length = 20; 
                 this.model.setMemes(memes); //сеттим мемы в модели, когда приходят реальные данные 
             });               
     }
@@ -40,10 +40,15 @@ class Controller {
     }
 
     handleViewTextTopChange = (text) => { //когда во вью что-то меняется, я делаю:
+        //проверка на количество символов
+           
+        
         this.model.setTextTop(text);
     }
 
     handleViewTextBottomChange = (text) => {
+        //проверка на количество символов
+                
         this.model.setTextBottom(text);
     }
 
@@ -54,5 +59,4 @@ class Controller {
     handleModelTextBottomChange = () => {
         this.view.renderPreview(this.model.getPreview());
     }
-    
-}
+} 
