@@ -35,20 +35,19 @@ h3 {
 }
 
 .frame {
-  margin-bottom: 1em;
+    margin-bottom: 1em;
     padding: 0.5em 1em;
     font-size: 0.8em;
     border: 1px solid #000000;
     border-radius: 10px;
 }
 
-.mem-image {
+/* .mem-image {
   width: 100%;
-}
+} */
 
 @media (max-width: 1199px) {
   .container {
-    width: 100%;
     flex-direction: column;
     padding-left: 12px;
     padding-top: 80px;
@@ -57,5 +56,10 @@ h3 {
 }
 
 @media (max-width: 767px) {
-
+  .container {
+    width: 100%;
+  }
+  .frame {
+    width: 100%;
+  }
 } 
