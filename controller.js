@@ -41,7 +41,7 @@ class Controller {
 
     handleViewTextTopChange = (text) => { //когда во вью что-то меняется, я делаю:
         //проверка на количество символов
-           
+        
         
         this.model.setTextTop(text);
     }
