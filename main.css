@@ -8,21 +8,38 @@ body {
 }
 
 .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2em;
   margin: 0 auto;
-  width: 1150px;
   padding: 2em;
+  max-width: 800px;
+  background-color: #fff;
 }
 
 .wrapper {
-  display: flex;
-  justify-content: space-between;
-  gap: 2em;
+  width: calc(50% - 1em - 2px);
 }
 
 h2 {
   font-size: 1.7em;
   line-height: 2em;
   font-weight: 700;
+}
+
+h3 {
+  font-size: 1em;
+    line-height: 1.5em;
+    font-weight: 400;
+}
+
+.frame {
+  margin-bottom: 1em;
+    padding: 0.5em 1em;
+    font-size: 0.8em;
+    border: 1px solid #000000;
+    border-radius: 10px;
 }
 
 .mem-image {
