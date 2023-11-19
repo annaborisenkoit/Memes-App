@@ -18,6 +18,31 @@
   </head>
   <body>
     <div class="container">
+      <div class="view-container">
+          <h2>Настройки:</h2>
+          <h3>Выберите мем из списка</h3>
+          <select class="selector-frame js-memes-select" id="imageSelector" placeholder="Select Image">
+      </select>
+          <h3>Напишите верхний текст</h3>
+          <input class="input-frame js-text-top-input" type="text" id="inputTextTop" placeholder="Type Here">
+          <h3>Напишите нижний текст</h3>
+          <input class="input-frame js-text-bottom-input" type="text" id="inputTextBottom" placeholder="Type Here">
+      </div>
+      <div class="view-container">
+          <h2>Превью:</h2>
+          <div class="meme-frame">
+              <img class="meme-img js-image" id="memeImg" src="default-img.png" alt="We Are Sorry, Image Upload Failure">
+              <div class="text-top js-top-text">
+                  <p id="textTop">верхний текст...</p>
+              </div>
+              <div class="text-bottom js-bottom-text">
+                  <p id="textBottom">Нижний текст...</p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+    <!-- <div class="container">
       <div class="wrapper">
         <div class="setting">
           <h2>Настройки:</h2>
@@ -38,7 +63,7 @@
           <img class="js-image mem-image">
         </div>
       </div>
-    </div>
+    </div> -->
 
      
 
