@@ -22,7 +22,7 @@ class Controller {
         this.api.getMemes() //на старте получаем мемы, из api вызываю getMemes - имитирую апишку, но она пока возвращает пустые мемы, потом будет ходить в реальный апи
             .then(data => {
                 const memes = data.data.memes;
-                memes.length = 20; 
+                memes.length = 30; 
                 this.model.setMemes(memes); //сеттим мемы в модели, когда приходят реальные данные 
             });               
     }
